@@ -17,15 +17,15 @@
     "yarn": "0.20.x"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.0.0",
     "classnames": "^2.2.5",
     "dropzone": "^4.2.0",
     "favicons-webpack-plugin": "^0.0.7",
-    "jquery": "^3.1.1",
+    "jquery": "^3.5.0",
     "jquery-match-height": "^0.7.0",
     "jquery-ui": "^1.12.1",
     "jquery.cookie": "^1.4.1",
-    "materialize-css": "^0.97.7",
+    "materialize-css": "^0.99.0",
     "mobx": "^3.0.2",
     "mobx-react": "^4.1.0",
     "modernizr": "^3.2.0",
@@ -38,7 +38,8 @@
     "sortablejs": "^1.5.0-rc1",
     "svg-injector-2": "^2.0.35",
     "tether": "^1.4.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",
@@ -91,6 +92,9 @@
   "scripts": {
     "build-assets": "node ./node_modules/webpack/bin/webpack.js -p",
     "heroku-postbuild": "yarn add --force node-sass && yarn run build-assets",
-    "start": "UV_THREADPOOL_SIZE=8 node ./node_modules/webpack/bin/webpack.js -d --watch"
-  }
+    "start": "UV_THREADPOOL_SIZE=8 node ./node_modules/webpack/bin/webpack.js -d --watch",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+  },
+  "snyk": true
 }
